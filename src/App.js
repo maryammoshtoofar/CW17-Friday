@@ -4,10 +4,10 @@ import { Form } from "./components/Q2";
 
 function App() {
   return (
-    <>
+    <div className="wrapper">
       {/* <ShowVideo /> */}
       <Form />
-    </>
+    </div>
   );
 }
 

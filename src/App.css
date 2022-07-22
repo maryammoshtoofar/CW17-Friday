@@ -1,9 +1,11 @@
 .wrapper {
+
   
   display: flex;
   padding: 20px;
-  background-color: black;
+  background-color: #E9EAED;
   color:white;
+
  
   gap: 20px;
 }

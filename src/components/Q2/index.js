@@ -1,7 +1,16 @@
-import React from "react";
+import {useRef, useEffect} from 'react';
 import "./index.css";
 
 export const Form = () => {
+  const inputNameRef = useRef(null);
+  const inputEmailRef = useRef(null);
+  const inputPasswordRef = useRef(null);
+  const inputConfirmPasswordRef = useRef(null);
+  useEffect(() => {
+    inputEmailRef.current.focus();
+  },[]);
+
+
   return (
     <div className="container">
       <div>
@@ -10,10 +19,10 @@ export const Form = () => {
       <div>
         <form>
           <h2>Register Form</h2>
-          <input type="text" placeholder="yourName" />
-          <input type="email" placeholder="emailAddress" />
-          <input type="password" placeholder="password" />
-          <input type="password" placeholder="confirmPassword" />
+          <input ref={inputNameRef} type="text" placeholder="yourName" onKeyDown={(e)=> {e.preventDefault(); if (e.keyCode === 9) {inputConfirmPasswordRef.current.focus();}}} />
+          <input ref={inputEmailRef} type="email" placeholder="emailAddress" onKeyDown={(e)=> {e.preventDefault(); if (e.keyCode === 9) {inputNameRef.current.focus();}}}/>
+          <input ref={inputPasswordRef} type="password" placeholder="password" onKeyDown={(e)=> {e.preventDefault(); if (e.keyCode === 9) {inputEmailRef.current.focus();}}} />
+          <input ref={inputConfirmPasswordRef} type="password" placeholder="confirmPassword" onKeyDown={(e)=> {e.preventDefault(); if (e.keyCode === 9) {inputPasswordRef.current.focus();}}} />
           <button>Register</button>
         </form>
       </div>
